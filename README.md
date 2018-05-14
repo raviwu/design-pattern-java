@@ -16,3 +16,34 @@
 - Few drawbacks
 - Often used for undo functionality
 
+### [Interpreter 解譯器](src/org/lwstudio/designpatternjava/behavioral_interpreter/InterpreterDemo.java)
+
+#### Design
+
+- Context 待解譯的語句
+- AbstractExpression 所有規則都要實作的介面
+- Interpret(Context) with
+    - TerminalExpression 最小單位的規則
+    - NonterminalExpression 可以再展開的規則組合
+
+#### Example in Java
+
+```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class InterpreterDemo {
+    
+    public static void main(String[] args) {
+        String input = "Apple, orange, and lemons!";
+        
+        Pattern p = Pattern.compile("(orange|Orange|lemon|Lemon|apple|Apple|grape|Grape)");
+        Matcher m = p.matcher(input);
+        
+        while (m.find()) {
+            System.out.println("Found a " + m.group() + ".");
+        }
+    }
+    
+}
+```
