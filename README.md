@@ -47,3 +47,37 @@ public class InterpreterDemo {
     
 }
 ```
+
+### [Iterator](src/org/lwstudio/designpatternjava/behavioral_iterator/IteratorDemo.java)
+
+#### Design
+
+- Interface based
+- Factory Method based
+- Independent, but fail fast
+- Enumerators are fail safe
+- Iterator, ConcreteIterator
+
+#### Example in Java
+
+```java
+import java.util.ArrayList;
+
+public class IteratorDemo {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+
+        names.add("Vincent");
+        names.add("Ravi");
+        names.add("Joan");
+
+        Iterator<String> namesIterator = names.iterator();
+
+        while(namesIterator.hasNext()) { 
+            String name = namesIterator.next();
+            System.out.println(name);
+            namesIterator.remove();
+        }
+    }
+}
+```
